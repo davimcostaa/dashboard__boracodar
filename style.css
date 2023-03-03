@@ -10,7 +10,6 @@
     font-size: 62.5%;
 }
 
-
 body {
     font-size: 1.6rem;
     font-family: 'Inter', sans-serif;
@@ -22,12 +21,15 @@ body {
 
 #app {
     background-color: #292738;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 29.6rem max-content max-content;
+    grid-template-rows: max-content;
     column-gap: 3.2rem;
     row-gap: 5.9rem;
-    width: 100vw;
+    width: fit-content;
+    min-width: 100vw;
     height: 100vh;
-    padding: 11.2rem 12.3rem;
+    min-height: 100vh;
+    place-content: center;
 }
 
 .box {
@@ -36,6 +38,7 @@ body {
     box-shadow: 0.3rem 0.4rem 2.6rem rgba(0, 0, 0, 0.25);
     border-radius: 1.6rem;
     color: white;
+    line-height: 160%;
 }
 
 .box:nth-child(4) {
@@ -43,12 +46,48 @@ body {
     grid-column: 1/4;
 }
 
-.nps {
-    text-align: center;
+.top {
     font-weight: 600;
     font-size: 24px;
-    line-height: 160%;
-    width: 29.6rem;
+    text-align: center;
+}
+
+.bottom {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: auto;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.bottom .item {
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+.bottom .item span:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.bottom .item span {
+    --bg-color: #4A4556;
+}
+
+.bottom .item span:nth-child(1)::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    background: var(--bg-color);
+    border-radius: 999px;
+}
+
+.nps {
     gap: 3.2rem;
 }
 
@@ -61,9 +100,32 @@ body {
 }
 
 .nps .bottom {
-    font-weight: 500;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
     gap: 1rem;
+}
+
+
+.middle {
+    display: grid;
+    place-content: center;
+}
+
+svg {
+    width: 19.7rem;
+    height: 19.7rem;
+    
+} 
+
+svg circle {
+    stroke-dasharray: 618;
+    stroke-dashoffset: 618;
+    stroke-width: 35;
+    fill: none;
+}
+
+svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+}
+
+svg circle:nth-child(2) {
+    stroke-dashoffset: calc(618 - ((618 * 70) / 100 ));
 }
